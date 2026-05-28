@@ -1,7 +1,6 @@
 Sistema de Reservas de Sala - CoworkLima S.A.C.
 
 Alumno: Johan Alfaro Mejia
-Curso: Spring Boot - Nivel 2
 Institucion: CodiGo powered by Tecsup
 
 Para ejecutar el proyecto:
@@ -40,4 +39,4 @@ DTO: objetos que se usan para recibir y enviar datos al cliente. Los DTOs de res
 
 Mapper: convierte entre modelos y DTOs. Toda la transformacion de datos ocurre aca.
 
-Repositorio GitHub: https://github.com/jojan9898/cowork-api
+Repositorio GitHub: https://github.com/jojan9898/coworklima
