@@ -1,0 +1,167 @@
+{
+  "info": {
+    "name": "cowork-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /api/info",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:9090/api/info"
+      }
+    },
+    {
+      "name": "GET /api/salas",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:9090/api/salas"
+      }
+    },
+    {
+      "name": "GET /api/salas/{id}",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:9090/api/salas/1"
+      }
+    },
+    {
+      "name": "POST /api/salas",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:9090/api/salas",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"codigo\": \"SALA-A1\",\n  \"nombre\": \"Sala Andes\",\n  \"capacidad\": 12,\n  \"ubicacion\": \"Piso 3\"\n}"
+        }
+      }
+    },
+    {
+      "name": "PUT /api/salas/{id}",
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:9090/api/salas/1",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"codigo\": \"SALA-A1\",\n  \"nombre\": \"Sala Andes Actualizada\",\n  \"capacidad\": 15,\n  \"ubicacion\": \"Piso 3\"\n}"
+        }
+      }
+    },
+    {
+      "name": "DELETE /api/salas/{id}",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:9090/api/salas/1"
+      }
+    },
+    {
+      "name": "POST /api/reservas",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:9090/api/reservas",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"salaId\": 1,\n  \"responsable\": \"Carlos Quispe\",\n  \"email\": \"cquispe@cowork.pe\",\n  \"fecha\": \"2026-06-10\",\n  \"horaInicio\": \"09:00\",\n  \"horaFin\": \"10:30\"\n}"
+        }
+      }
+    },
+    {
+      "name": "GET /api/reservas/{id}",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:9090/api/reservas/1"
+      }
+    },
+    {
+      "name": "GET /api/reservas (sin filtros)",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:9090/api/reservas"
+      }
+    },
+    {
+      "name": "GET /api/reservas (con filtros)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:9090/api/reservas?estado=PENDIENTE&fecha=2026-06-10",
+          "host": ["http://localhost:9090"],
+          "path": ["api", "reservas"],
+          "query": [
+            { "key": "estado", "value": "PENDIENTE" },
+            { "key": "fecha", "value": "2026-06-10" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/reservas/sala/{salaId}",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:9090/api/reservas/sala/1"
+      }
+    },
+    {
+      "name": "PUT /api/reservas/{id}/estado",
+      "request": {
+        "method": "PUT",
+        "url": {
+          "raw": "http://localhost:9090/api/reservas/1/estado?nuevoEstado=CONFIRMADA",
+          "host": ["http://localhost:9090"],
+          "path": ["api", "reservas", "1", "estado"],
+          "query": [
+            { "key": "nuevoEstado", "value": "CONFIRMADA" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /api/reservas/{id}",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:9090/api/reservas/1"
+      }
+    },
+    {
+      "name": "POST /api/reservas/{id}/comprobante",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:9090/api/reservas/1/comprobante",
+        "header": [
+          {
+            "key": "X-Cliente-Id",
+            "value": "CLI-001"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "archivo",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
